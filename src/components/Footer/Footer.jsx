@@ -11,7 +11,10 @@ import {
 
 const FooterPage = () => {
   const socialLinks = [
-    { icon: <SendOutlined />, link: "https://t.me/HakimEthio" },
+    {
+      icon: <SendOutlined />,
+      link: "https://t.me/HakimEthio",
+    },
     {
       icon: <YoutubeOutlined />,
       link: "https://youtube.com/@hakim207?si=qOLz_0YtFnFx62Aa",
@@ -69,9 +72,7 @@ const FooterPage = () => {
           className="flex flex-col pl-4 sm:pl-8 md:pl-16 space-y-3"
         >
           <span className="text-base font-bold ">Explore</span>
-          <Link className="border-2 border-cyan-400 text-white inline" href="#">
-            Contact Us
-          </Link>
+          <Link href="#">Contact Us</Link>
           <Link href="#">HakimPodcast</Link>
           <Link href="#">Articles</Link>
           <Link href="#">Blog</Link>
@@ -80,7 +81,7 @@ const FooterPage = () => {
           xs={24}
           sm={12}
           md={6}
-          className="flex flex-col pl-4 sm:pl-8 md:pl-12 space-y-3"
+          className="flex  flex-col pl-4 sm:pl-8 md:pl-12 space-y-3"
         >
           <span className="text-base font-bold">Address</span>
           <a href="#">Addis Ababa, Ethiopia</a>
@@ -93,12 +94,18 @@ const FooterPage = () => {
         >
           <span className="text-base font-bold">Contact</span>
           <a href="#">Hakim Podcast</a>
-          <a href="#">
-            <PhoneOutlined />
-          </a>
-          <a href="#">
-            <MailOutlined />
-          </a>
+          <div className="flex items-center gap-1">
+            <a href="#">
+              <PhoneOutlined />
+              <span className="pl-1">+2519-00-11-11-11</span>
+            </a>
+          </div>
+          <div className="flex items-center gap-4">
+            <a href="#">
+              <MailOutlined />
+              <span className="pl-1">hakimpodcast@gmail.com</span>
+            </a>
+          </div>
         </Col>
       </Row>
       <div className="flex flex-col items-center py-4">

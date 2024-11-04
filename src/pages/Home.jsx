@@ -1,14 +1,13 @@
 import React from "react";
-import { Button, Image } from 'antd';
+import { Button, Image } from "antd";
 import { Hero, photo7 } from "../assets/images";
 import LatestEpisodes from "./Home/Latest";
-import { RightOutlined } from '@ant-design/icons'; // Import the icon
+import { RightOutlined } from "@ant-design/icons"; // Import the icon
 import FooterPage from "../components/Footer/Footer";
 import HealthcareServices from "./Home/Services";
-import EpisodesGrid from "./Home/Event"
+import EpisodesGrid from "./Home/Event";
 import SubscriptionForm from "./Home/Subscription";
 const Home = () => {
-
   return (
     <div className="w-full h-screen relative bg-gray-50">
       <div className="relative w-full h-[400px] md:h-[600px] lg:h-[800px]">

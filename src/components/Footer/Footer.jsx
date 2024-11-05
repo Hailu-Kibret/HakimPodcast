@@ -120,7 +120,7 @@ const FooterPage = () => {
             target="_blank"
             href="https://kasmasolution.com/"
           >
-            <strong>KassMa Tech Solution Company</strong>
+            <strong>Kasma Software Solution</strong>
           </a>
         </p>
       </div>

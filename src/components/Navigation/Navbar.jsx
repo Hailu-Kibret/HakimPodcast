@@ -46,11 +46,11 @@ const Navbar = () => {
         to="/hakimPodcast"
         className={({ isActive }) =>
           `transition duration-300 ease-in-out ${
-            isActive ? "text-black" : "text-gray-600 hover:text-black"
-          }`
+            isActive ? "text-black" : "text-gray-600 hover:text-black "
+          } `
         }
       >
-        Hakim_Podcast
+        About
       </NavLink>
       <br />
       <Dropdown
@@ -77,13 +77,13 @@ const Navbar = () => {
           </Menu>
         }
       >
-        <a
+        <button
           href="#"
           className="transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center"
         >
           Articles
           <DownOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
-        </a>
+        </button>
       </Dropdown>
       <br />
       <NavLink
@@ -115,13 +115,10 @@ const Navbar = () => {
           </Menu>
         }
       >
-        <a
-          href="#"
-          className="transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center"
-        >
+        <button className="transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center">
           Opportunity{" "}
-          <DownOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
-        </a>
+          <DownOutlined style={{ fontSize: "12px", marginRight: "8px" }} />
+        </button>
       </Dropdown>{" "}
       <br />
       {/* <Dropdown
@@ -154,16 +151,6 @@ const Navbar = () => {
           <DownOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
         </a>
       </Dropdown> */}
-      <NavLink
-        to="/hakimPodcas"
-        className={({ isActive }) =>
-          `transition duration-300 ease-in-out ${
-            isActive ? "text-black" : "text-gray-600 hover:text-black"
-          }`
-        }
-      >
-        What We Offer
-      </NavLink>
       <br />
       <Dropdown
         overlay={
@@ -171,7 +158,10 @@ const Navbar = () => {
             <Menu.Item key="1" style={menuStyle}>
               <NavLink to="/contacts/partner">
                 <MailOutlined
-                  style={{ fontSize: "12px", marginRight: "8px" }}
+                  style={{
+                    fontSize: "12px",
+                    marginRight: "8px ",
+                  }}
                 />
                 Partner with us
               </NavLink>
@@ -179,7 +169,10 @@ const Navbar = () => {
             <Menu.Item key="2" style={menuStyle}>
               <NavLink to="/contacts">
                 <PhoneOutlined
-                  style={{ fontSize: "12px", marginRight: "8px" }}
+                  style={{
+                    fontSize: "12px",
+                    marginRight: "8px",
+                  }}
                 />
                 Contact
               </NavLink>
@@ -187,25 +180,40 @@ const Navbar = () => {
           </Menu>
         }
       >
-        <a
+        <button
           href="#"
-          className="transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center"
+          className=" transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center"
         >
           Contacts{" "}
           <DownOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
-        </a>
+        </button>
       </Dropdown>
+      <NavLink
+        to="/hakimPodcast"
+        className={({ isActive }) =>
+          `transition duration-300 ease-in-out px-4 py-2 rounded border border-gray-600 ${
+            isActive
+              ? "text-white bg-black shadow-lg"
+              : "text-gray-600 hover:bg-gray-600 hover:text-white hover:shadow-lg"
+          }`
+        }
+      >
+        Subscribe
+      </NavLink>
       <br />
     </div>
   );
 
   return (
-    <header className="bg-white">
-      <div className="container mx-auto flex items-center justify-between px-6">
-        <div className="flex items-center gap-4">
-          <Image className="w-30 h-30" src={Hakim} width={70} alt="Logo" />
-        </div>
-        <nav className="hidden lg:flex lg:items-center lg:space-x-8 font-bold">
+    <header className="bg-white pl-6 pr-12 py-1 fixed z-50 w-full ">
+      <div className="container flex items-center justify-between ">
+        <NavLink
+          to="/"
+          className="flex items-center gap-4 hover:cursor-pointer"
+        >
+          <img src={Hakim} width={70} alt="Hakim Logo" />
+        </NavLink>
+        <nav className=" lg:flex lg:items-center lg:space-x-8 font-bold">
           {navList}
         </nav>
         <Button

@@ -26,9 +26,9 @@ const FooterPage = () => {
   ];
 
   return (
-    <footer className="bg-black text-white py-6">
-      <Row className="container mx-auto">
-        <Col
+    <footer className="  bg-black text-white py-6">
+      <Row className="container mx-auto flex items-start justify-between">
+        {/* <Col
           xs={24}
           sm={12}
           md={6}
@@ -51,7 +51,7 @@ const FooterPage = () => {
               >
                 <Tooltip title={link.link.slice(22)}>
                   {" "}
-                  {/* Extract platform name from URL */}
+                  
                   <a
                     href={link.link}
                     target="_blank"
@@ -64,7 +64,7 @@ const FooterPage = () => {
               </Col>
             ))}
           </Row>
-        </Col>
+        </Col> */}
         <Col
           xs={24}
           sm={12}
@@ -108,6 +108,7 @@ const FooterPage = () => {
           </div>
         </Col>
       </Row>
+
       <div className="flex flex-col items-center py-4">
         <div className="w-full h-px bg-gray-700"></div>
         <p className="text-white mt-4">
@@ -120,7 +121,7 @@ const FooterPage = () => {
             target="_blank"
             href="https://kasmasolution.com/"
           >
-            <strong>Kasma Software Solution</strong>
+            <strong>Kasma software solution</strong>
           </a>
         </p>
       </div>

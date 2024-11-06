@@ -50,7 +50,7 @@ const Navbar = () => {
           } `
         }
       >
-        About
+        Podcast
       </NavLink>
       <br />
       <Dropdown
@@ -121,7 +121,7 @@ const Navbar = () => {
         </button>
       </Dropdown>{" "}
       <br />
-      {/* <Dropdown
+      <Dropdown
         overlay={
           <Menu style={menuStyle}>
             <Menu.Item key="1" style={menuStyle}>
@@ -147,10 +147,10 @@ const Navbar = () => {
           href="#"
           className="text-gray-600 hover:text-black flex items-center"
         >
-          What We Offer{" "}
+          Services
           <DownOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
         </a>
-      </Dropdown> */}
+      </Dropdown>
       <br />
       <Dropdown
         overlay={
@@ -188,7 +188,7 @@ const Navbar = () => {
           <DownOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
         </button>
       </Dropdown>
-      <NavLink
+      {/* <NavLink
         to="/hakimPodcast"
         className={({ isActive }) =>
           `transition duration-300 ease-in-out px-4 py-2 rounded border border-gray-600 ${
@@ -199,13 +199,13 @@ const Navbar = () => {
         }
       >
         Subscribe
-      </NavLink>
+      </NavLink> */}
       <br />
     </div>
   );
 
   return (
-    <header className="bg-white pl-6 pr-12 py-1 fixed z-50 w-full ">
+    <header className="bg-white pl-6 pr-12 py-1  w-full fixed bg-opacity-60 z-50">
       <div className="container flex items-center justify-between ">
         <NavLink
           to="/"

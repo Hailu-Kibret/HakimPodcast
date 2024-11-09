@@ -29,7 +29,7 @@ const SubscriptionForm = () => {
   return (
     <div className="bg-gray-100 py-8 flex justify-center">
       <div className="max-w-md w-full">
-        <h2 className="text-3xl font-bold mb-4 text-center">
+        <h2 className="text-3xl font-bold text-center   mb-8">
           Free WebHakimEthio Newsletters
         </h2>
         <Form

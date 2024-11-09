@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Card, Row, Col, Spin, Alert } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
-import { GetLatest } from '../../api/latest';
+import React, { useState, useEffect } from "react";
+import { Card, Row, Col, Spin, Alert } from "antd";
+import { AudioOutlined } from "@ant-design/icons";
+import { GetLatest } from "../../api/latest";
 
 const LatestEpisodes = () => {
   const [episodesStack, setEpisodesStack] = useState([]);
@@ -34,7 +34,7 @@ const LatestEpisodes = () => {
   };
 
   const carouselContent = () => {
-    const pageSize = 3;
+    const pageSize = 6;
     const startIndex = currentPage * pageSize;
     const endIndex = startIndex + pageSize;
     return episodesStack.slice(startIndex, endIndex);
@@ -46,14 +46,16 @@ const LatestEpisodes = () => {
   return (
     <div className="bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-4">Latest Episodes</h2>
+        <h2 className="text-center  mb-8 text-3xl font-bold">
+          Latest Episodes
+        </h2>
         <Row gutter={[16, 16]}>
           {carouselContent().map((episode, index) => (
             <Col key={index} xs={24} sm={12} md={8} lg={8}>
               <Card
                 cover={<img alt={episode.title} src={episode.image} />}
                 className="shadow-lg flex flex-col justify-between"
-                style={{ height: '100%' }}
+                style={{ height: "100%" }}
               >
                 <div className="flex-grow">
                   <h3 className="text-lg font-medium mb-2">{episode.title}</h3>

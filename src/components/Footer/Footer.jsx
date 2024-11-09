@@ -115,7 +115,7 @@ const FooterPage = () => {
           © {new Date().getFullYear()} | Hakim Podcast
         </p>
         <p className="text-white">
-          Developed ♥ By{" "}
+          Developed By{" "}
           <a
             className=" rounded-sm transition-colors duration-300 hover:text-gray-300"
             target="_blank"

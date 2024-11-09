@@ -38,7 +38,7 @@ const HealthcareServices = () => {
       id="Services"
       className="flex flex-col items-center bg-white py-10 px-4 sm:px-6 lg:px-8"
     >
-      <h2>Our Services</h2>
+      <h2 className="text-center text-3xl font-bold mb-8">Our Services</h2>
       <div className="flex flex-wrap justify-between w-full max-w-6xl">
         <div className="w-full lg:w-1/3 flex flex-col space-y-4 mb-4 lg:mb-0">
           {servicesLeft.map((service, index) => (

@@ -26,82 +26,62 @@ const FooterPage = () => {
   ];
 
   return (
-    <footer className="  bg-black text-white py-6">
-      <Row className="container mx-auto flex items-start justify-between">
-        {/* <Col
-          xs={24}
-          sm={12}
-          md={6}
-          className="flex flex-col pl-4 sm:pl-8 md:pl-16 space-y-3"
-        >
-          <a href="#" className="flex items-center">
-            <span>Explore our social media</span>
-          </a>
-          <span>for exclusive content</span>
-          <span>and community highlights</span>
-          <span>Connect below!</span>
-          <Row gutter={8} className="mt-4">
-            {socialLinks.map((link) => (
-              <Col
-                key={link.link}
-                span={8}
-                xs={6}
-                sm={4}
-                className="flex justify-center"
-              >
-                <Tooltip title={link.link.slice(22)}>
-                  {" "}
-                  
-                  <a
-                    href={link.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-lg hover:text-blue-500"
-                  >
-                    {link.icon}
-                  </a>
-                </Tooltip>
-              </Col>
-            ))}
-          </Row>
-        </Col> */}
+    <footer className="bg-black text-white py-6">
+      <Row className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-8">
+        {/* Column 1 */}
         <Col
           xs={24}
           sm={12}
           md={6}
-          className="flex flex-col pl-4 sm:pl-8 md:pl-16 space-y-3"
+          className="flex flex-col items-start space-y-3"
         >
-          <span className="text-base font-bold ">Explore</span>
-          <Link href="#">Contact Us</Link>
-          <Link href="#">HakimPodcast</Link>
-          <Link href="#">Articles</Link>
-          <Link href="#">Blog</Link>
+          <span className="text-base font-bold">Explore</span>
+          <Link href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+            Contact Us
+          </Link>
+          <Link href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+            HakimPodcast
+          </Link>
+          <Link href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+            Articles
+          </Link>
+          <Link href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+            Blog
+          </Link>
         </Col>
+
+        {/* Column 2 */}
         <Col
           xs={24}
           sm={12}
           md={6}
-          className="flex  flex-col pl-4 sm:pl-8 md:pl-12 space-y-3"
+          className="flex flex-col items-start space-y-3"
         >
           <span className="text-base font-bold">Address</span>
-          <a href="#">Addis Ababa, Ethiopia</a>
+          <a href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+            Addis Ababa, Ethiopia
+          </a>
         </Col>
+
+        {/* Column 3 */}
         <Col
           xs={24}
           sm={12}
           md={6}
-          className="flex flex-col pl-4 sm:pl-8 md:pl-12 space-y-3"
+          className="flex flex-col items-start space-y-3"
         >
           <span className="text-base font-bold">Contact</span>
-          <a href="#">Hakim Podcast</a>
+          <a href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+            Hakim Podcast
+          </a>
           <div className="flex items-center gap-1">
-            <a href="#">
+            <a href="#" className="text-[#007FFF] hover:text-[#005fbd]">
               <PhoneOutlined />
               <span className="pl-1">+2519-00-11-11-11</span>
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#">
+            <a href="#" className="text-[#007FFF] hover:text-[#005fbd]">
               <MailOutlined />
               <span className="pl-1">hakimpodcast@gmail.com</span>
             </a>
@@ -109,7 +89,8 @@ const FooterPage = () => {
         </Col>
       </Row>
 
-      <div className="flex flex-col items-center py-4">
+      {/* Footer Bottom */}
+      <div className="flex flex-col items-center py-4 mt-6">
         <div className="w-full h-px bg-gray-700"></div>
         <p className="text-white mt-4">
           © {new Date().getFullYear()} | Hakim Podcast
@@ -117,7 +98,7 @@ const FooterPage = () => {
         <p className="text-white">
           Developed By{" "}
           <a
-            className=" rounded-sm transition-colors duration-300 hover:text-gray-300"
+            className="rounded-sm transition-colors duration-300 hover:text-gray-300"
             target="_blank"
             href="https://kasmasolution.com/"
           >

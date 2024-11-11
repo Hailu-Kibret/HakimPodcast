@@ -10,8 +10,9 @@ import {
   CaretDownOutlined,
   ReadOutlined,
   PhoneOutlined,
+  RightOutlined,
 } from "@ant-design/icons";
-import Hakim from "../../assets/images/Hakim.jpg";
+import Hakim from "../../assets/images/HAKIM FINAL2.png";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -47,7 +48,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           `transition duration-300 ease-in-out ${
             isActive ? "text-black" : "text-gray-600 hover:text-black "
-          } `
+          }`
         }
       >
         Podcast
@@ -77,12 +78,11 @@ const Navbar = () => {
           </Menu>
         }
       >
-        <button
-          href="#"
-          className="transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center"
-        >
+        <button className="group transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center">
           Articles
-          <DownOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
+          <span className="transform transition-transform duration-300 ease-in-out group-hover:rotate-90 group-hover:translate-x-1">
+            <RightOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
+          </span>
         </button>
       </Dropdown>
       <br />
@@ -115,9 +115,11 @@ const Navbar = () => {
           </Menu>
         }
       >
-        <button className="transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center">
+        <button className="group transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center">
           Opportunity{" "}
-          <DownOutlined style={{ fontSize: "12px", marginRight: "8px" }} />
+          <span className="transform transition-transform duration-300 ease-in-out group-hover:rotate-90 group-hover:translate-x-1">
+            <RightOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
+          </span>
         </button>
       </Dropdown>{" "}
       <br />
@@ -143,13 +145,12 @@ const Navbar = () => {
           </Menu>
         }
       >
-        <a
-          href="#"
-          className="text-gray-600 hover:text-black flex items-center"
-        >
+        <button className="group transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center">
           Services
-          <DownOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
-        </a>
+          <span className="transform transition-transform duration-300 ease-in-out group-hover:rotate-90 group-hover:translate-x-1">
+            <RightOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
+          </span>
+        </button>
       </Dropdown>
       <br />
       <Dropdown
@@ -180,26 +181,13 @@ const Navbar = () => {
           </Menu>
         }
       >
-        <button
-          href="#"
-          className=" transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center"
-        >
+        <button className="group transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center">
           Contacts{" "}
-          <DownOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
+          <span className="transform transition-transform duration-300 ease-in-out group-hover:rotate-90 group-hover:translate-x-1">
+            <RightOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
+          </span>
         </button>
       </Dropdown>
-      {/* <NavLink
-        to="/hakimPodcast"
-        className={({ isActive }) =>
-          `transition duration-300 ease-in-out px-4 py-2 rounded border border-gray-600 ${
-            isActive
-              ? "text-white bg-black shadow-lg"
-              : "text-gray-600 hover:bg-gray-600 hover:text-white hover:shadow-lg"
-          }`
-        }
-      >
-        Subscribe
-      </NavLink> */}
       <br />
     </div>
   );
@@ -213,7 +201,7 @@ const Navbar = () => {
         >
           <img src={Hakim} width={70} alt="Hakim Logo" />
         </NavLink>
-        <nav className=" lg:flex lg:items-center lg:space-x-8 font-bold">
+        <nav className="hidden lg:flex lg:items-center lg:space-x-8 font-bold">
           {navList}
         </nav>
         <Button

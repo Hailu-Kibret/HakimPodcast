@@ -11,6 +11,7 @@ import {
 } from "@ant-design/icons";
 import { photo1 } from "../../assets/images";
 
+// Example services data
 const servicesLeft = [
   {
     icon: <MedicineBoxOutlined style={{ marginLeft: 50 }} />,
@@ -40,11 +41,12 @@ const HealthcareServices = () => {
     >
       <h2 className="text-center text-3xl font-bold mb-8">Our Services</h2>
       <div className="flex flex-wrap justify-between w-full max-w-6xl">
+        {/* Cards that slide in from the left */}
         <div className="w-full lg:w-1/3 flex flex-col space-y-4 mb-4 lg:mb-0">
           {servicesLeft.map((service, index) => (
             <Card
               key={index}
-              className="w-full flex items-center justify-center p-5 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer "
+              className="w-full flex items-center justify-center p-5 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer animate-slideInLeft"
               onClick={() => handleCardClick(service.title)}
             >
               <div className="text-center">
@@ -56,14 +58,18 @@ const HealthcareServices = () => {
             </Card>
           ))}
         </div>
+
+        {/* Center image */}
         <div className="w-full lg:w-1/3 flex justify-center items-center mb-4 lg:mb-0">
-          <img src={photo1} alt="Doctor" className="w-full h-auto" />
+          <img src={photo1} alt="Healthcare" className="w-full h-auto" />
         </div>
-        <div className="w-full lg:w-1/3 flex flex-col space-y-4">
+
+        {/* Cards that slide in from the right */}
+        <div className="w-full lg:w-1/3 flex flex-col space-y-4 mb-4 lg:mb-0">
           {servicesRight.map((service, index) => (
             <Card
               key={index}
-              className="w-full flex items-center justify-center p-5 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="w-full flex items-center justify-center p-5 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer animate-slideInRight"
               onClick={() => handleCardClick(service.title)}
             >
               <div className="text-center">

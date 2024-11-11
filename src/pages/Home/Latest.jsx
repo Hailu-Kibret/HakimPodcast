@@ -1,78 +1,78 @@
-import React, { useState, useEffect } from "react";
-import { Card, Row, Col, Spin, Alert } from "antd";
-import { AudioOutlined } from "@ant-design/icons";
-import { GetLatest } from "../../api/latest";
+import React from "react";
+import { Card, Row, Col } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 
-const LatestEpisodes = () => {
-  const [episodesStack, setEpisodesStack] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(0);
+// Array of episode data
+const episodes = [
+  {
+    videoId: "moGKHUi8dqQ",
+    title: "የኢትዮጵያ ከተማ ግንባታ እና ፋብሪካ",
+    description: "የኢትዮጵያ ከተማ ግንባታ እና ፋብሪካ",
+  },
+  {
+    videoId: "cGjuPbAWVzU",
+    title: "ያሰር ባገርሽ - ሲኢኦ ኦፍ ካክተስ አድቨርታይዚንግ",
+    description: "ያሰር ባገርሽ - ሲኢኦ ኦፍ ካክተስ አድቨርታይዚንግ እና ማርኬቲንግ",
+  },
+  {
+    videoId: "cGjuPbAWVzU",
+    title: "ያሰር ባገርሽ - ሲኢኦ ኦፍ ካክተስ አድቨርታይዚንግ",
+    description: "ያሰር ባገርሽ - ሲኢኦ ኦፍ ካክተስ አድቨርታይዚንግ እና ማርኬቲንግ",
+  },
+];
 
-  useEffect(() => {
-    const fetchEpisodes = async () => {
-      setLoading(true);
-      try {
-        const data = await GetLatest();
-        if (data.error) {
-          setError(data.error);
-        } else {
-          setEpisodesStack([...data].reverse()); // Reverse to simulate LIFO order
-        }
-      } catch (err) {
-        setError("An unexpected error occurred.");
-      } finally {
-        setLoading(false);
-      }
-    };
+// Card component to display each episode
+const EpisodeCard = ({ videoId, title, description, onClick }) => (
+  <Card
+    hoverable
+    onClick={onClick}
+    className="w-full flex flex-col justify-between"
+    style={{ height: "100%", backgroundColor: "#f0f0f0" }}
+  >
+    {/* Embed YouTube video */}
+    <iframe
+      className="w-full h-48 mb-4"
+      src={`https://www.youtube.com/embed/${videoId}`}
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      title={title}
+    ></iframe>
 
-    fetchEpisodes();
-  }, []);
+    {/* Title and Description */}
+    <div className="flex flex-col flex-grow">
+      <Link to={`/episode/${title}`} className="text-lg font-bold mb-2">
+        {title}
+      </Link>
+      <p>{description}</p>
+    </div>
+  </Card>
+);
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+const EpisodesGrid = () => {
+  const navigate = useNavigate();
+
+  // Function to navigate to the episode page
+  const handleCardClick = (title) => {
+    navigate(`/episode/${title}`);
   };
-
-  const carouselContent = () => {
-    const pageSize = 6;
-    const startIndex = currentPage * pageSize;
-    const endIndex = startIndex + pageSize;
-    return episodesStack.slice(startIndex, endIndex);
-  };
-
-  if (loading) return <Spin tip="Loading episodes..." />;
-  if (error) return <Alert message="Error" description={error} type="error" />;
 
   return (
-    <div className="bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">
+      {/* Page Title */}
+      <h2 className="text-center text-3xl font-bold mb-8">Latest Episode</h2>
+
+      {/* Grid Container */}
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-center  mb-8 text-3xl font-bold">
-          Latest Episodes
-        </h2>
         <Row gutter={[16, 16]}>
-          {carouselContent().map((episode, index) => (
-            <Col key={index} xs={24} sm={12} md={8} lg={8}>
-              <Card
-                cover={<img alt={episode.title} src={episode.image} />}
-                className="shadow-lg flex flex-col justify-between"
-                style={{ height: "100%" }}
-              >
-                <div className="flex-grow">
-                  <h3 className="text-lg font-medium mb-2">{episode.title}</h3>
-                  <p className="text-gray-600 mb-4">{episode.guest}</p>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs flex items-center">
-                    <AudioOutlined className="mr-2" /> {episode.category}
-                  </span>
-                  <a
-                    href="#"
-                    className="text-orange-500 hover:text-orange-700 font-medium"
-                  >
-                    View Episode
-                  </a>
-                </div>
-              </Card>
+          {episodes.map((episode, index) => (
+            <Col key={index} xs={24} sm={12} md={8} className="flex">
+              <EpisodeCard
+                videoId={episode.videoId}
+                title={episode.title}
+                description={episode.description}
+                onClick={() => handleCardClick(episode.title)}
+              />
             </Col>
           ))}
         </Row>
@@ -81,4 +81,4 @@ const LatestEpisodes = () => {
   );
 };
 
-export default LatestEpisodes;
+export default EpisodesGrid;

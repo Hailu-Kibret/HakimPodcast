@@ -27,17 +27,19 @@ const SubscriptionForm = () => {
   };
 
   return (
-    <div className="bg-gray-100 py-8 flex justify-center">
-      <div className="flex justify-around items-center ">
-        <h2 className="text-3xl font-bold text-center mb-8 animate-slide-in ">
+    <div className="bg-gray-100 py-8 flex justify-center ">
+      <div className="flex flex-col justify-center items-center space-y-8">
+        {/* Title Section */}
+        <h2 className="text-3xl font-bold text-center mb-8 animate-slide-in">
           Hakim Ethio Newsletters
         </h2>
 
+        {/* Form Section */}
         <Form
           form={form}
           name="subscription"
           onFinish={onSubscribe}
-          className="subscription-form bg-gradient-to-r from-blue-500 via-blue-400 to-indigo-500 p-8 rounded-lg shadow-xl w-full md:w-1/2  transition-all duration-300"
+          className="subscription-form bg-gradient-to-r from-blue-500 via-blue-400 to-indigo-500 p-8 rounded-lg shadow-xl w-3/4 md:w-1/2  transition-all duration-300"
         >
           <div className="flex flex-col justify-between items-center md:flex-row space-y-4 md:space-y-0 md:space-x-4">
             <Form.Item

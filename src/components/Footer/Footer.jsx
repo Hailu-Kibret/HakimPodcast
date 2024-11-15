@@ -1,51 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Space, Button, Row, Col, Image, Tooltip } from "antd";
+import { Row, Col } from "antd";
 import {
   SendOutlined,
   YoutubeOutlined,
   LinkedinOutlined,
-  PhoneOutlined,
   MailOutlined,
 } from "@ant-design/icons";
 
 const FooterPage = () => {
-  const socialLinks = [
-    {
-      icon: <SendOutlined />,
-      link: "https://t.me/HakimEthio",
-    },
-    {
-      icon: <YoutubeOutlined />,
-      link: "https://youtube.com/@hakim207?si=qOLz_0YtFnFx62Aa",
-    },
-    {
-      icon: <LinkedinOutlined />,
-      link: "https://www.linkedin.com/groups/9536029",
-    },
-  ];
-
   return (
     <footer className="bg-black text-white py-6">
-      <Row className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-8">
+      <Row className="container mx-auto flex flex-col sm:flex-row items-center sm:items-start justify-around gap-8 text-left">
         {/* Column 1 */}
         <Col
           xs={24}
           sm={12}
           md={6}
-          className="flex flex-col items-start space-y-3"
+          className="flex flex-col items-center sm:items-start space-y-3 text-left"
         >
           <span className="text-base font-bold">Explore</span>
-          <Link href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+          <Link to="/contacts" className="text-[#007FFF] hover:text-[#005fbd]">
             Contact Us
           </Link>
-          <Link href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+          <Link
+            to="/hakimPodcast"
+            className="text-[#007FFF] hover:text-[#005fbd]"
+          >
             HakimPodcast
           </Link>
-          <Link href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+          <Link to="/Articles/" className="text-[#007FFF] hover:text-[#005fbd]">
             Articles
           </Link>
-          <Link href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+          <Link to="/blogs" className="text-[#007FFF] hover:text-[#005fbd]">
             Blog
           </Link>
         </Col>
@@ -55,12 +42,10 @@ const FooterPage = () => {
           xs={24}
           sm={12}
           md={6}
-          className="flex flex-col items-start space-y-3"
+          className="flex flex-col items-center sm:items-start space-y-3"
         >
           <span className="text-base font-bold">Address</span>
-          <a href="#" className="text-[#007FFF] hover:text-[#005fbd]">
-            Addis Ababa, Ethiopia
-          </a>
+          <span className="text-[#007FFF]">Addis Ababa, Ethiopia</span>
         </Col>
 
         {/* Column 3 */}
@@ -68,20 +53,25 @@ const FooterPage = () => {
           xs={24}
           sm={12}
           md={6}
-          className="flex flex-col items-start space-y-3"
+          className="flex flex-col items-center sm:items-start space-y-3"
         >
           <span className="text-base font-bold">Contact</span>
           <a href="#" className="text-[#007FFF] hover:text-[#005fbd]">
             Hakim Podcast
           </a>
           <div className="flex items-center gap-1">
-            <a href="#" className="text-[#007FFF] hover:text-[#005fbd]">
-              <PhoneOutlined />
-              <span className="pl-1">+2519-00-11-11-11</span>
+            <a
+              href="tel:+251900111111"
+              className="text-[#007FFF] hover:text-[#005fbd]"
+            >
+              +251 900 111 111
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-[#007FFF] hover:text-[#005fbd]">
+            <a
+              href="mailto:hakimpodcast@gmail.com"
+              className="text-[#007FFF] hover:text-[#005fbd] flex items-center"
+            >
               <MailOutlined />
               <span className="pl-1">hakimpodcast@gmail.com</span>
             </a>
@@ -102,7 +92,7 @@ const FooterPage = () => {
             target="_blank"
             href="https://kasmasolution.com/"
           >
-            <strong>Kasma software solution</strong>
+            <strong>Kasma Software Solution</strong>
           </a>
         </p>
       </div>

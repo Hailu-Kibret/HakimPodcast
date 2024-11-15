@@ -193,7 +193,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="bg-white pl-6 pr-12 py-1  w-full fixed bg-opacity-60 z-50">
+    <header className="bg-white pl-6 pr-12 py-1  w-full  bg-opacity-60 z-50 ">
       <div className="container flex items-center justify-between ">
         <NavLink
           to="/"

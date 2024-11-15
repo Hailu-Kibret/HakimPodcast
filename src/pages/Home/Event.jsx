@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col } from "antd";
+import { Card, Row, Col, Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 
 // Array of episode data
@@ -61,9 +61,21 @@ const EpisodesGrid = () => {
   return (
     <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">
       {/* Page Title */}
-      <h2 className="text-center text-3xl font-bold mb-8">
-        Explore all episodes
-      </h2>
+      <div className="relative mb-8">
+        <h2 className="text-center text-3xl font-bold mb-8">
+          Explore all episodes
+        </h2>
+        {/* See More Button */}
+        <Link to="/all-podcasts">
+          <Button
+            className="absolute top-0 right-0 mb-4 mr-4"
+            type="primary"
+            shape="round"
+          >
+            See More
+          </Button>
+        </Link>
+      </div>
 
       {/* Grid Container */}
       <div className="max-w-6xl mx-auto">

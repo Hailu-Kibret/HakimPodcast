@@ -89,14 +89,14 @@ function ContactForm() {
             rows={4}
           />
         </Form.Item>
-        <Button
+        <button
           type="primary"
-          className="bg-orange-600 border-none hover:bg-orange-700"
+          className="   border border-[#007FFF] text-[#007FFF] px-4 py-2 rounded-md hover:bg-[#007FFF] hover:text-white transition duration-200 ease-in-out"
           size="large"
           htmlType="submit"
         >
           Send Message
-        </Button>
+        </button>
       </Form>
     </div>
   );

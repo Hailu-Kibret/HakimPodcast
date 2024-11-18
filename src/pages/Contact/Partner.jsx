@@ -15,11 +15,15 @@ const PartnerPage = () => {
   return (
     <Layout className="overflow-hidden">
       {/* Header Section */}
-      <Header className="relative">
-        <div className="absolute inset-0 bg-gray-50 font-bold text-center flex justify-center items-center p-12">
-          <Title level={2} className="text-white text-3xl relative  ">
+
+      <Header className="relative bg-white shadow-lg">
+        <div className="absolute inset-0 flex justify-center items-center p-12">
+          <h1
+            level={2}
+            className="text-blue-600 text-4xl font-bold text-center mb-8"
+          >
             Partner With Us
-          </Title>
+          </h1>
         </div>
       </Header>
 

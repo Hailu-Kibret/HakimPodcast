@@ -1,64 +1,83 @@
-import React, { useState, useEffect } from 'react';
-import { Card, Tag } from 'antd';
-import { GetPodcasts } from '../../api/podcast'; // Adjust the import path as needed
+import React, { useState, useEffect } from "react";
+import { Card, Row, Col } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 
-const { Meta } = Card;
+// Array of episode data
+const episodes = [
+  {
+    videoId: "moGKHUi8dqQ",
+    title: "የኢትዮጵያ ከተማ ግንባታ እና ፋብሪካ",
+    description: "የኢትዮጵያ ከተማ ግንባታ እና ፋብሪካ",
+  },
+  {
+    videoId: "cGjuPbAWVzU",
+    title: "ያሰር ባገርሽ - ሲኢኦ ኦፍ ካክተስ አድቨርታይዚንግ",
+    description: "ያሰር ባገርሽ - ሲኢኦ ኦፍ ካክተስ አድቨርታይዚንግ እና ማርኬቲንግ",
+  },
+  {
+    videoId: "cGjuPbAWVzU",
+    title: "ያሰር ባገርሽ - ሲኢኦ ኦፍ ካክተስ አድቨርታይዚንግ",
+    description: "ያሰር ባገርሽ - ሲኢኦ ኦፍ ካክተስ አድቨርታይዚንግ እና ማርኬቲንግ",
+  },
+];
+
+// Card component to display each episode
+const EpisodeCard = ({ videoId, title, description, onClick }) => (
+  <Card
+    hoverable
+    onClick={onClick}
+    className="w-full flex flex-col justify-between"
+    style={{ height: "100%", backgroundColor: "#f0f0f0" }}
+  >
+    {/* Embed YouTube video */}
+    <iframe
+      className="w-full h-48 mb-4"
+      src={`https://www.youtube.com/embed/${videoId}`}
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      title={title}
+    ></iframe>
+
+    {/* Title and Description */}
+    <div className="flex flex-col flex-grow">
+      <Link to={`/episode/${title}`} className="text-lg font-bold mb-2">
+        {title}
+      </Link>
+      <p>{description}</p>
+    </div>
+  </Card>
+);
 
 const Podcast = () => {
-  const [podcasts, setPodcasts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchPodcasts = async (values) => {
-      try {
-        const data = await GetPodcasts(values);
-        if (data) {
-          setPodcasts(data.reverse());
-        } else {
-          throw new Error('No data returned');
-        }
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPodcasts();
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  // Function to navigate to the episode page
+  const handleCardClick = (title) => {
+    navigate(`/episode/${title}`);
+  };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {podcasts.map((podcast) => (
-          <Card
-            key={podcast.id}
-            cover={
-              <iframe
-                src={podcast.videoSrc}
-                title={`Podcast Episode ${podcast.episode}`}
-                className="w-full h-56"
-                allowFullScreen
-                frameBorder="0"
-              ></iframe>
-            }
-            className="bg-gray-800 text-white"
-          >
-            <Meta
-              title={
-                <div className="flex items-center mb-2 text-white">
-                  <Tag color="blue" className="mr-2">{podcast.category}</Tag>
-                  <span>Episode {podcast.episode}</span>
-                </div>
-              }
-              description={<span>{podcast.title}</span>}
-            />
-          </Card>
-        ))}
+    <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">
+      {/* Page Title */}
+      <h2 className="text-center text-4xl font-bold mb-8 text-blue-600">
+        All podcasts
+      </h2>
+
+      {/* Grid Container */}
+      <div className="max-w-6xl mx-auto">
+        <Row gutter={[16, 16]}>
+          {episodes.map((episode, index) => (
+            <Col key={index} xs={24} sm={12} md={8} className="flex">
+              <EpisodeCard
+                videoId={episode.videoId}
+                title={episode.title}
+                description={episode.description}
+                onClick={() => handleCardClick(episode.title)}
+              />
+            </Col>
+          ))}
+        </Row>
       </div>
     </div>
   );

@@ -11,8 +11,9 @@ const Home = () => {
     <div className="w-full h-screen bg-gray-50">
       <HeroSection />
       <EpisodesGrid />
-      <LatestEpisodes />
+
       <HealthcareServices />
+      <LatestEpisodes />
       <SubscriptionForm />
       <br />
       <div>

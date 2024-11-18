@@ -30,7 +30,8 @@ const SubscriptionForm = () => {
     <div className="bg-gray-100 py-8 flex justify-center ">
       <div className="flex flex-col justify-center items-center space-y-8">
         {/* Title Section */}
-        <h2 className="text-3xl font-bold text-center mb-8 animate-slide-in">
+
+        <h2 className="text-center text-4xl font-bold mb-8 text-blue-600 animate-slide-in">
           Hakim Ethio Newsletters
         </h2>
 

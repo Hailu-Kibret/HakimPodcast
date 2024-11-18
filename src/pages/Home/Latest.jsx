@@ -60,7 +60,10 @@ const EpisodesGrid = () => {
   return (
     <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">
       {/* Page Title */}
-      <h2 className="text-center text-3xl font-bold mb-8">Latest Episode</h2>
+
+      <h2 className="text-center text-4xl font-bold mb-8 text-blue-600">
+        Latest Episode
+      </h2>
 
       {/* Grid Container */}
       <div className="max-w-6xl mx-auto">

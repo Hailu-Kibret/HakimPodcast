@@ -26,7 +26,7 @@ function Header() {
   };
 
   return (
-    <section className="relative w-full h-[600px] sm:h-[700px] lg:h-[800px] px-4">
+    <section className="relative w-full h-[700px] sm:h-[800px] lg:h-[900px] px-4">
       {/* Background Image and Overlay */}
       <div className="absolute inset-0">
         <img
@@ -34,25 +34,24 @@ function Header() {
           alt="Medical services background"
           className="object-cover w-full h-full"
         />
-        <div className="absolute inset-0 bg-white opacity-40"></div>
+        <div className="absolute inset-0 bg-black opacity-40"></div>
       </div>
 
       {/* Content */}
-      <div className="mx-auto absolute z-10 flex flex-col justify-center items-center h-full p-4 sm:p-8 lg:p-12 text-center text-black">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+      <div className="absolute z-10 flex flex-col justify-center items-center h-full p-6 sm:p-10 lg:p-14 text-center text-white">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
           Medical services that you can{" "}
-          <span className="inline-block transition-all duration-300 ease-in-out">
+          <span className="inline-block transition-all duration-300 ease-in-out text-yellow-400 w-[140px] text-center">
             {words[currentWordIndex]}
           </span>
-          .
         </h1>
-        <p className="mt-4 text-lg sm:text-xl max-w-md">
+        <p className="mt-4 text-lg sm:text-xl max-w-3xl mx-auto">
           Providing quality care and trusted medical services to help you stay
-          healthy.
+          healthy. Our experts are here to guide you every step of the way.
         </p>
         <Button
           type="primary"
-          className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-3"
+          className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg"
           size="large"
         >
           Discover More
@@ -62,18 +61,18 @@ function Header() {
         <form
           className={`absolute bottom-32 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] lg:w-[60%] flex ${
             showInput ? "flex-col" : "flex-row"
-          } justify-center items-center gap-4 pt-6 bg-gray-100 p-6 rounded-lg shadow-lg bg-opacity-60 transition-all duration-300`}
+          } justify-center items-center gap-4 pt-6 bg-white rounded-lg shadow-xl transition-all duration-300`}
         >
           {/* Large screens: Full search bar */}
-          <div className="hidden lg:flex w-full items-center gap-4">
+          <div className="hidden lg:flex w-full items-center justify-center gap-4 mb-6">
             <input
               type="text"
               placeholder="Search any podcast..."
-              className="w-full lg:w-[400px] p-4 rounded-full text-gray-900 font-semibold placeholder-gray-500 focus:outline-none border-2 border-[#007FFF] focus:border-[#007FFF] transition-all duration-200 ease-in-out shadow-sm focus:shadow-lg"
+              className="w-full lg:w-[400px] p-4 rounded-full text-gray-900 font-semibold placeholder-gray-500 focus:outline-none border-2 border-blue-500 focus:border-blue-500 transition-all duration-200 ease-in-out shadow-sm focus:shadow-lg"
             />
             <Button
               type="primary"
-              className="rounded-r-lg bg-[#007FFF] hover:bg-[#005BB5] text-white font-bold px-6 py-3 flex items-center transition-all duration-300"
+              className="rounded-r-lg bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 flex items-center transition-all duration-300"
               size="large"
             >
               Search
@@ -81,10 +80,10 @@ function Header() {
           </div>
 
           {/* Small screens: Collapsible search icon */}
-          <div className="flex lg:hidden">
+          <div className="flex lg:hidden justify-center">
             <Button
               type="primary"
-              className="p-3 rounded-full bg-[#007FFF] hover:bg-[#005BB5] text-white transition-all duration-300"
+              className="p-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
               icon={<SearchOutlined />}
               onClick={(e) => {
                 e.preventDefault();
@@ -95,15 +94,15 @@ function Header() {
 
           {/* Expanded input on mobile and tablet */}
           {showInput && (
-            <div className="lg:hidden mt-4 w-full flex items-center">
+            <div className="lg:hidden mt-4 w-full flex items-center justify-center gap-4">
               <input
                 type="text"
                 placeholder="Search any podcast..."
-                className="w-full p-4 rounded-full text-gray-900 font-semibold placeholder-gray-500 focus:outline-none border-2 border-[#007FFF] focus:border-[#007FFF] transition-all duration-200 ease-in-out shadow-sm focus:shadow-lg"
+                className="w-full p-4 rounded-full text-gray-900 font-semibold placeholder-gray-500 focus:outline-none border-2 border-blue-500 focus:border-blue-500 transition-all duration-200 ease-in-out shadow-sm focus:shadow-lg"
               />
               <Button
                 type="primary"
-                className="rounded-r-lg bg-[#007FFF] hover:bg-[#005BB5] text-white font-bold px-6 py-3 ml-2 transition-all duration-300"
+                className="rounded-r-lg bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 ml-2 transition-all duration-300"
                 size="large"
               >
                 Search
@@ -113,31 +112,31 @@ function Header() {
         </form>
 
         {/* Social Media Links */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row items-center justify-center gap-4 bg-gray-800 p-4 bg-opacity-75 rounded-lg w-11/12 sm:w-2/3">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row items-center justify-center gap-6 bg-black p-4 bg-opacity-70 rounded-lg w-11/12 sm:w-2/3">
           <a
             href="#"
-            className="text-2xl text-[#1877F2] transition-transform transform hover:scale-110"
+            className="text-2xl text-blue-600 transition-transform transform hover:scale-110"
           >
             <FacebookOutlined />{" "}
             <span className="hidden sm:inline">Facebook</span>
           </a>
           <a
             href="#"
-            className="text-2xl text-[#1DA1F2] transition-transform transform hover:scale-110"
+            className="text-2xl text-blue-400 transition-transform transform hover:scale-110"
           >
             <TwitterOutlined />{" "}
             <span className="hidden sm:inline">Twitter</span>
           </a>
           <a
             href="#"
-            className="text-2xl text-[#E4405F] transition-transform transform hover:scale-110"
+            className="text-2xl text-pink-600 transition-transform transform hover:scale-110"
           >
             <InstagramOutlined />{" "}
             <span className="hidden sm:inline">Instagram</span>
           </a>
           <a
             href="#"
-            className="text-2xl text-[#FF0000] transition-transform transform hover:scale-110"
+            className="text-2xl text-red-600 transition-transform transform hover:scale-110"
           >
             <YoutubeOutlined />{" "}
             <span className="hidden sm:inline">YouTube</span>

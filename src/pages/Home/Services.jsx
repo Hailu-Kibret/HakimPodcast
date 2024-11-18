@@ -82,7 +82,10 @@ const HealthcareServices = () => {
         isModalVisible ? "blur" : ""
       }`}
     >
-      <h2 className="text-center text-3xl font-bold mb-8">Our Services</h2>
+      <h2 className="text-center text-4xl font-bold mb-8 text-blue-600">
+        Our Services
+      </h2>
+
       <div className="flex flex-wrap justify-between w-full max-w-6xl">
         {/* Cards that slide in from the left */}
         <div className="w-full lg:w-1/3 flex flex-col space-y-4 mb-4 lg:mb-0">

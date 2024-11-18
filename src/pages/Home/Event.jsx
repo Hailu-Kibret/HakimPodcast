@@ -62,7 +62,7 @@ const EpisodesGrid = () => {
     <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">
       {/* Page Title */}
       <div className="relative mb-8">
-        <h2 className="text-center text-3xl font-bold mb-8">
+        <h2 className="text-center text-4xl font-bold mb-8 text-blue-600">
           Explore all episodes
         </h2>
         {/* See More Button */}

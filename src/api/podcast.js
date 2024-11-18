@@ -1,46 +1,48 @@
-import { axiosInstance } from './axiosInstance';
+import { axiosInstance } from "./axiosInstance";
+
+// Centralized error handler
+const handleError = (error, context = "") => {
+  console.error(`${context}:`, error.message || error);
+  return { success: false, message: error.message || "An error occurred" };
+};
 
 // Register podcasts
 export const CreatePodcasts = async (payload) => {
   try {
-    const response = await axiosInstance.post(`/podcasts`, payload); // Added payload
-    return response.data;
+    const response = await axiosInstance.post(`/podcasts`, payload);
+    return { success: true, data: response.data };
   } catch (error) {
-    console.error("Error creating podcast:", error); // More robust error handling
-    return error.message;
+    return handleError(error, "Error creating podcast");
   }
-}
+};
 
-// Get podcasts
+// Get all podcasts
 export const GetPodcasts = async () => {
   try {
-    const response = await axiosInstance.get('/podcasts'); // Changed to GET request
-    return response.data;
+    const response = await axiosInstance.get(`/podcasts`);
+    return { success: true, data: response.data };
   } catch (error) {
-    console.error("Error fetching podcasts:", error); // More robust error handling
-    return error.message;
+    return handleError(error, "Error fetching podcasts");
   }
-}
+};
 
-// Get current podcast by ID
+// Get podcast by ID
 export const GetPodcastsById = async (id) => {
   try {
-    const response = await axiosInstance.get(`/podcasts/${id}`); // Changed to GET request
-    return response.data;
+    const response = await axiosInstance.get(`/podcasts/${id}`);
+    return { success: true, data: response.data };
   } catch (error) {
-    console.error(`Error fetching podcast with ID ${id}:`, error); // More robust error handling
-    return error.message;
+    return handleError(error, `Error fetching podcast with ID ${id}`);
   }
-}
+};
 
 // Update podcasts
-export const UpdatePodcasts = async (id, payload) => { // Added payload parameter
+export const UpdatePodcasts = async (id, payload) => {
   try {
-    const response = await axiosInstance.put(`/podcasts/${id}`, payload); // Added payload
-    return response.data;
+    const response = await axiosInstance.put(`/podcasts/${id}`, payload);
+    return { success: true, data: response.data };
   } catch (error) {
-    console.error(`Error updating podcast with ID ${id}:`, error); // More robust error handling
-    return error.message;
+    return handleError(error, `Error updating podcast with ID ${id}`);
   }
 };
 
@@ -48,9 +50,8 @@ export const UpdatePodcasts = async (id, payload) => { // Added payload paramete
 export const DeletePodcasts = async (id) => {
   try {
     const response = await axiosInstance.delete(`/podcasts/${id}`);
-    return response.data;
+    return { success: true, data: response.data };
   } catch (error) {
-    console.error(`Error deleting podcast with ID ${id}:`, error); // More robust error handling
-    return error.message;
+    return handleError(error, `Error deleting podcast with ID ${id}`);
   }
-}
+};

@@ -18,11 +18,14 @@ const Contacts = () => {
   return (
     <Layout className="overflow-hidden">
       {/* Header Section */}
-      <Header className="relative ">
-        <div className="absolute inset-0 bg-gray-50 font-bold text-center flex justify-center items-center p-12">
-          <Title level={2} className="text-white text-3xl relative  ">
+      <Header className="relative bg-white shadow-lg">
+        <div className="absolute inset-0 flex justify-center items-center p-12">
+          <h1
+            level={2}
+            className="text-blue-600 text-4xl font-bold text-center mb-8"
+          >
             Contact Us
-          </Title>
+          </h1>
         </div>
       </Header>
 
@@ -31,8 +34,8 @@ const Contacts = () => {
         <Content className="max-w-7xl mx-auto lg:p-8 flex flex-col md:flex-row items-center">
           {/* Contact Details */}
           <div className="w-full md:w-4/5 text-center md:text-left">
-            <div className="text-[#007FFF] font-bold text-lg md:text-2xl">
-              <h1>Contact us</h1>
+            <div className="text-center text-4xl font-bold mb-8 text-blue-600">
+              <h2 className="">Contact us</h2>
             </div>
             <br />
             <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-12">
@@ -93,8 +96,6 @@ const Contacts = () => {
                 <LinkedinOutlined className="text-xl md:text-2xl" />
               </a>
             </div>
-
-            {/* Message Button */}
           </div>
 
           {/* Contact Form */}

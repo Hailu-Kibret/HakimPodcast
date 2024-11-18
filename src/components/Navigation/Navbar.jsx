@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { Menu, Dropdown, Button, Image, Drawer } from "antd";
 import {
   DownOutlined,
@@ -123,35 +124,16 @@ const Navbar = () => {
         </button>
       </Dropdown>{" "}
       <br />
-      <Dropdown
-        overlay={
-          <Menu style={menuStyle}>
-            <Menu.Item key="1" style={menuStyle}>
-              <NavLink to="/Consulation">
-                <UserOutlined
-                  style={{ fontSize: "12px", marginRight: "8px" }}
-                />
-                Consulation
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key="2" style={menuStyle}>
-              <NavLink to="/TeleMedicin">
-                <VideoCameraOutlined
-                  style={{ fontSize: "12px", marginRight: "8px" }}
-                />
-                TeleMedicin
-              </NavLink>
-            </Menu.Item>
-          </Menu>
-        }
+      <ScrollLink
+        to="Services" // The id of the section to scroll to
+        smooth={true}
+        offset={-70} // Adjust offset to match any fixed header height
+        duration={500} // Animation duration in ms
+        activeClass="active" // Class to apply when the section is active
+        className="cursor-pointer transition duration-300 ease-in-out text-gray-600 hover:text-black"
       >
-        <button className="group transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center">
-          Services
-          <span className="transform transition-transform duration-300 ease-in-out group-hover:rotate-90 group-hover:translate-x-1">
-            <RightOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
-          </span>
-        </button>
-      </Dropdown>
+        Services
+      </ScrollLink>
       <br />
       <Dropdown
         overlay={

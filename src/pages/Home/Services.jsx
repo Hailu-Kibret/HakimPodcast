@@ -64,37 +64,27 @@ const HealthcareServices = () => {
     isDownloadable: false,
   });
 
-  // Function to handle card click with download option for Patient Leaflets
-  const handleCardClick = (title, description, isDownloadable) => {
-    setModalContent({ title, description, isDownloadable });
-    setIsModalVisible(true);
-  };
-
-  // Close modal
-  const handleCloseModal = () => {
-    setIsModalVisible(false);
+  const handleCardClick = (serviceId) => {
+    navigate(`/services/${serviceId}`);
   };
 
   return (
     <div
       id="Services"
-      className={`flex flex-col items-center bg-white py-10 px-4 sm:px-6 lg:px-8 ${
-        isModalVisible ? "blur" : ""
-      }`}
+      className="flex flex-col items-center bg-white py-10 px-4"
     >
       <h2 className="text-center text-4xl font-bold mb-8 text-blue-600">
         Our Services
       </h2>
 
       <div className="flex flex-wrap justify-between w-full max-w-6xl">
-        {/* Cards that slide in from the left */}
         <div className="w-full lg:w-1/3 flex flex-col space-y-4 mb-4 lg:mb-0">
           {servicesLeft.map((service, index) => (
             <Card
               key={index}
               className="w-full flex items-center justify-center p-5 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer animate-slideInLeft"
               onClick={() =>
-                handleCardClick(service.title, service.description)
+                handleCardClick(service.title.toLowerCase().replace(/ /g, "-"))
               }
             >
               <div className="text-center">
@@ -112,18 +102,13 @@ const HealthcareServices = () => {
           <img src={photo1} alt="Healthcare" className="w-full h-auto" />
         </div>
 
-        {/* Cards that slide in from the right */}
         <div className="w-full lg:w-1/3 flex flex-col space-y-4 mb-4 lg:mb-0">
           {servicesRight.map((service, index) => (
             <Card
               key={index}
               className="w-full flex items-center justify-center p-5 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer animate-slideInRight"
               onClick={() =>
-                handleCardClick(
-                  service.title,
-                  service.description,
-                  service.isDownloadable
-                )
+                handleCardClick(service.title.toLowerCase().replace(/ /g, "-"))
               }
             >
               <div className="text-center">
@@ -136,40 +121,6 @@ const HealthcareServices = () => {
           ))}
         </div>
       </div>
-
-      {/* Modal for service details */}
-      <Modal
-        title={modalContent.title}
-        visible={isModalVisible}
-        onCancel={handleCloseModal}
-        footer={
-          modalContent.isDownloadable ? (
-            <Button
-              type="primary"
-              onClick={() => {
-                const link = document.createElement("a");
-                link.href = "/path/to/patient-leaflet.pdf"; // Replace with actual file path
-                link.download = "patient-leaflet.pdf";
-                link.click();
-              }}
-            >
-              Download Leaflet
-            </Button>
-          ) : (
-            <Button onClick={handleCloseModal}>Close</Button>
-          )
-        }
-      >
-        <p style={{ fontSize: "18px" }}>{modalContent.description}</p>
-      </Modal>
-
-      {/* CSS styles */}
-      <style jsx>{`
-        .blur {
-          filter: blur(4px);
-          transition: filter 0.3s ease-in-out;
-        }
-      `}</style>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import photo2 from "../../assets/images/photo4.jpg";
 import { Layout, Menu, Card, Divider } from "antd";
 import {
@@ -11,6 +11,11 @@ import FooterPage from "../../components/Footer/Footer";
 const { Header, Content, Sider } = Layout;
 
 function Bio() {
+  const [selectedKey, setSelectedKey] = useState("1"); // Default selected key
+
+  const handleMenuClick = (e) => {
+    setSelectedKey(e.key); // Update the selected key on click
+  };
   const biography = {
     name: "Professor Asrat",
     position: "President, XYZ University, Country",
@@ -25,8 +30,8 @@ function Bio() {
 
   return (
     <Layout className="min-h-screen bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
-      <Header className="bg-white text-center py-6 shadow-lg">
-        <div className="text-4xl font-bold text-blue-600 ">
+      <Header className="bg-white text-center py-6 shadow-lg relative">
+        <div className="text-4xl font-bold text-blue-600  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           Biography of {biography.name}
         </div>
       </Header>
@@ -34,32 +39,39 @@ function Bio() {
         <Sider width={200} className="bg-gray-100 p-4">
           <Menu
             mode="inline"
-            defaultSelectedKeys={["1"]}
+            selectedKeys={[selectedKey]} // Use state for selected keys
             style={{ height: "100%", borderRight: 0 }}
             className="h-full"
           >
             <Menu.Item
               key="1"
               icon={<UserOutlined />}
-              className="hover:bg-blue-600 hover:text-white"
+              onClick={handleMenuClick}
+              className={selectedKey === "1" ? "bg-blue-600 text-white" : ""}
             >
               Quick Links
             </Menu.Item>
             <Menu.Item
               key="2"
               icon={<FileTextOutlined />}
-              className="hover:bg-blue-600 hover:text-white"
+              onClick={handleMenuClick}
+              className={selectedKey === "2" ? "bg-blue-600 text-white" : ""}
             >
               Systems
             </Menu.Item>
             <Menu.Item
               key="3"
               icon={<CalendarOutlined />}
-              className="hover:bg-blue-600 hover:text-white"
+              onClick={handleMenuClick}
+              className={selectedKey === "3" ? "bg-blue-600 text-white" : ""}
             >
               Upcoming Events
             </Menu.Item>
-            <Menu.Item key="4" className="hover:bg-blue-600 hover:text-white">
+            <Menu.Item
+              key="4"
+              onClick={handleMenuClick}
+              className={selectedKey === "4" ? "bg-blue-600 text-white" : ""}
+            >
               Downloads
             </Menu.Item>
           </Menu>
@@ -70,7 +82,7 @@ function Bio() {
             className="bg-white p-8 rounded-lg shadow-lg"
             style={{ margin: 0, minHeight: 280 }}
           >
-            <div className="flex flex-wrap md:flex-nowrap">
+            <div className="flex flex-wrap items-center md:flex-nowrap">
               <Card
                 cover={<img alt={biography.name} src={biography.image} />}
                 className="max-w-xs rounded-lg shadow-lg border-2 border-gray-200 mb-6 md:mr-8"

@@ -135,7 +135,7 @@ const Navbar = () => {
         Services
       </ScrollLink>
       <br />
-      <Dropdown
+      {/* <Dropdown
         overlay={
           <Menu style={menuStyle}>
             <Menu.Item key="1" style={menuStyle}>
@@ -149,27 +149,24 @@ const Navbar = () => {
                 Partner with us
               </NavLink>
             </Menu.Item>
-            <Menu.Item key="2" style={menuStyle}>
-              <NavLink to="/contacts">
-                <PhoneOutlined
-                  style={{
-                    fontSize: "12px",
-                    marginRight: "8px",
-                  }}
-                />
-                Contact
-              </NavLink>
-            </Menu.Item>
-          </Menu>
+            <Menu.Item key="2" style={menuStyle}> */}
+      <NavLink
+        to="/contacts"
+        className={({ isActive }) =>
+          `transition duration-300 ease-in-out ${
+            isActive ? "text-black" : "text-gray-600 hover:text-black"
+          }`
         }
       >
-        <button className="group transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center">
+        Contact Us
+      </NavLink>
+      {/* <button className="group transition duration-300 ease-in-out text-gray-600 hover:text-black flex items-center">
           Contacts{" "}
           <span className="transform transition-transform duration-300 ease-in-out group-hover:rotate-90 group-hover:translate-x-1">
             <RightOutlined style={{ fontSize: "12px", marginLeft: "4px" }} />
           </span>
         </button>
-      </Dropdown>
+      </Dropdown> */}
       <br />
     </div>
   );

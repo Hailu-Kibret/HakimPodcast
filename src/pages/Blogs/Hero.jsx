@@ -7,7 +7,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 py-16 text-center lg:py-24">
         {/* Heading */}
         <h1 className="text-4xl font-extrabold text-gray-800 dark:text-white lg:text-6xl">
-          Welcome to <span className="text-blue-600">Hakim Podcast</span>
+          Welcome to <span className="text-blue-600">Hakim</span>
         </h1>
 
         {/* Subtitle */}
